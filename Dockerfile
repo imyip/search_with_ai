@@ -28,5 +28,7 @@ COPY --from=build /app/package.json ./
 # RUN yarn config set registry https://mirrors.cloud.tencent.com/npm/
 RUN yarn install --production && yarn cache clean
 
+RUN apk del g++ gcc make python3
+
 EXPOSE 3000
 CMD yarn run start
